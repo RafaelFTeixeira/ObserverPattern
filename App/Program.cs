@@ -9,9 +9,9 @@ namespace App
       var source = new MockTimeSource();
       var sink = new MockTimeSink(source);
       source.RegisterObserver(sink);
-      source.SetTime(1, 2, 2);
+      var today = DateTime.Now;
+      source.SetTime(today.Hour, today.Minute, today.Second);
 
-      Console.WriteLine($"{source.Hours}:{source.Minutes}:{source.Seconds}");
       Console.WriteLine($"{sink.Hours}:{sink.Minutes}:{sink.Seconds}");
     }
   }
